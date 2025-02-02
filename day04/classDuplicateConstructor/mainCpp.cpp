@@ -24,6 +24,15 @@ public:
         this->name = other.name;
         this->age = other.age;
     }
+    
+    void setAge(int age) {
+        this->age = age;
+    }
+
+    void printInfo() {
+        cout << this->name << endl;
+        cout << this->age << endl;
+    }
 
 };
 
@@ -31,12 +40,18 @@ int main()
 {
     // 객체 생성
     Animal kong("콩이", 9);
+    kong.printInfo();
 
     // 기존 객체를 통해 새로운 객체 생성
     Animal newKong(kong);
-
+    newKong.printInfo();
     
-
-
+    // 새로운 객체의 정보를 변경
+    newKong.setAge(10);
+    // 새 객체의 정보는 변경되었지만
+    newKong.printInfo();
+    // 기존 객체와 독립되어 있기 때문에
+    // 기존 객체는 기존 값을 유지한다.(얕은 복사)
+    kong.printInfo();
 
 }
